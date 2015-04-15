@@ -1,0 +1,30 @@
+{
+  "name": "6lowpan",
+  "version": "0.0.4",
+  "description": "6LoWPAN module",
+  "main": "6LoWPAN.js",
+  "scripts": {
+    "test": "debug"
+  },
+  "dependencies": {
+    "bitmagic": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alex-Ayala-Bonilla/6lowpan.git"
+  },
+  "keywords": [
+    "6lowpan",
+    "iot",
+    "thread",
+    "zigbee",
+    "ipv6",
+    "802.15.4"
+  ],
+  "author": "Jesus Alejandro Ayala Bonilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-Ayala-Bonilla/6lowpan/issues"
+  },
+  "homepage": "https://github.com/Alex-Ayala-Bonilla/6lowpan"
+}
