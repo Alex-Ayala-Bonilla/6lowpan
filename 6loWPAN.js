@@ -56,6 +56,12 @@ function parseIphc(buf){
 	this.buf = buf;
 	this.offset = offset;
 
+	this.type = function() {
+		var parse = {};
+		parse = sixLowPanType(buf);
+		return parse.pattern;
+	};
+
 	this.iphc = function() {
 
 		var parse = {};
@@ -87,6 +93,10 @@ function parseIphc(buf){
 
 		return parse;
 	};
+
+	this.payload = function(){
+		return this.buf.slice(this.offset, this.buf.length);
+	}
 
 
 
@@ -243,14 +253,11 @@ function parseIphc(buf){
 	
 };
 
-
-var createParse = function(buf){
+var sixLowPanType = function(buf){
 
 	var parse = {};
 
-
 	var pattern = bitmagic.extractBitsFromByte(buf.slice(0, offset), 1, 2);
-	
 	
 	/*  Pattern */
 
@@ -285,7 +292,14 @@ var createParse = function(buf){
 		return;
 	}
 
-	//parse.payload = buf.slice(offset++, buf.length );
+	return parse;
+
+};
+
+var createParse = function(buf){
+
+	var parse = sixLowPanType(buf);
+
 
 	var patternType = {
 	'Not a LOWPAN Frame' : 0,
@@ -346,6 +360,10 @@ exports.parse = function(buf, callback){
 	callback(data, undefined);
 
 
+};
+
+exports.iphc = function(buf){
+	return new parseIphc(buf);
 };
 
 
