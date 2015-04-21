@@ -13,7 +13,11 @@ Via npm:
 
 ## Examples
 
+### Example 1
+
 ```js
+var frameBuffer = new Buffer('60ffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'hex');
+
 var sixlo = require('6lowpan');
 
 
@@ -23,6 +27,31 @@ var sixlo = require('6lowpan');
 		console.log(data.inline); // inline Header
 		console.log(data.payload); // the payload remaining
 	});
+
+```
+
+### Example 2
+
+```js
+var frameBuffer = new Buffer('60ffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'hex');
+
+var sixlo = require('6lowpan');
+
+var parse = new sixlo.iphc(frameBuffer);
+var type = parse.type();
+console.log('Pattern: ' + type);
+console.log(type === 'LOWPAN_IPHC'); //true
+console.log(type === 'IPv6' ); // false
+console.log(type === 'LOWPAN_HC1' ); // false
+console.log(type === 'LOWPAN_BC0' ); // false
+console.log(type === 'ESC' ); // false
+console.log(type === 'MESH' ); // false
+console.log(type === 'FRAG1' ); // false
+console.log(type === 'FRAGN' ); // false
+console.log(parse.iphc());
+console.log(parse.inlineHeader());
+console.log(parse.payload());
+
 
 ```
 
