@@ -71,7 +71,7 @@ console.log(parse.payload());
   * Functionality to create a 6lowpan frame from user data (json config)
 
 ## Doing
- * Extension Header
+ * Extension Headers
 
    
 ## History
