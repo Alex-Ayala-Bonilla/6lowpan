@@ -69,4 +69,17 @@ console.log(parse.payload());
   * Validator of 6lowpan frame.
   * Desfragmentation
   * Functionality to create a 6lowpan frame from user data (json config)
+   
+## History
+
+### 0.0.4 Initial Commit
+
+ * Initial Commit
+ * nitial iphc parse, iphc header and inline header.
+  
+### 0.0.5 Updates
+
+ * Object functionality.
+ * Update example 2.
+
 
