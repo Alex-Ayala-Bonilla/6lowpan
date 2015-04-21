@@ -69,6 +69,10 @@ console.log(parse.payload());
   * Validator of 6lowpan frame.
   * Desfragmentation
   * Functionality to create a 6lowpan frame from user data (json config)
+
+## Doing
+ * Extension Header
+
    
 ## History
 
