@@ -86,7 +86,7 @@ console.log(parse.payload());
  * Object functionality.
  * Update example 2.
 
- ### 0.0.6 Updates
+### 0.0.6 Updates
 
  * Added: IPv6 Next Header Compression.
  * Modified: Project tree
