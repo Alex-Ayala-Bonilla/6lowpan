@@ -1,6 +1,6 @@
 # 6lowpan
 A nodejs module to parse, create and test 6lowpan frames.
-Version 0.0.4 alpha
+Version 0.0.6 alpha
 
 ## Installation
 
@@ -85,5 +85,11 @@ console.log(parse.payload());
 
  * Object functionality.
  * Update example 2.
+
+ ### 0.0.6 Updates
+
+ * Added: IPv6 Next Header Compression.
+ * Modified: Project tree
+
 
 
