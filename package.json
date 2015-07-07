@@ -1,8 +1,8 @@
 {
   "name": "6lowpan",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "6LoWPAN module",
-  "main": "6LoWPAN.js",
+  "main": "lib/6lowpan.js",
   "scripts": {
     "test": "debug"
   },
@@ -21,10 +21,18 @@
     "ipv6",
     "802.15.4"
   ],
-  "author": "Jesus Alejandro Ayala Bonilla",
+  "author": {
+    "name": "Jesus Alejandro Ayala Bonilla"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Alex-Ayala-Bonilla/6lowpan/issues"
   },
-  "homepage": "https://github.com/Alex-Ayala-Bonilla/6lowpan"
+  "homepage": "https://github.com/Alex-Ayala-Bonilla/6lowpan",
+  "readme": "# 6lowpan\nA nodejs module to parse, create and test 6lowpan frames.\nVersion 0.0.4 alpha\n\n## Installation\n\nVia npm:\n\n    npm install 6lowpan\n    \n## Features\n * Initial iphc parse, iphc header and inline header\n\n## Examples\n\n### Example 1\n\n```js\nvar frameBuffer = new Buffer('60ffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'hex');\n\nvar sixlo = require('6lowpan');\n\n\n\tsixlo.parse(frameBuffer, function(data, error){\n\t\tconsole.log(data.pattern); // LOWPAN_IPHC\n\t\tconsole.log(data.iphc); // the iphc header \n\t\tconsole.log(data.inline); // inline Header\n\t\tconsole.log(data.payload); // the payload remaining\n\t});\n\n```\n\n### Example 2\n\n```js\nvar frameBuffer = new Buffer('60ffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 'hex');\n\nvar sixlo = require('6lowpan');\n\nvar parse = new sixlo.iphc(frameBuffer);\nvar type = parse.type();\nconsole.log('Pattern: ' + type);\nconsole.log(type === 'LOWPAN_IPHC'); //true\nconsole.log(type === 'IPv6' ); // false\nconsole.log(type === 'LOWPAN_HC1' ); // false\nconsole.log(type === 'LOWPAN_BC0' ); // false\nconsole.log(type === 'ESC' ); // false\nconsole.log(type === 'MESH' ); // false\nconsole.log(type === 'FRAG1' ); // false\nconsole.log(type === 'FRAGN' ); // false\nconsole.log(parse.iphc());\nconsole.log(parse.inlineHeader());\nconsole.log(parse.payload());\n\n\n```\n\n\n## TODOs\n  * Add Extension Headers\n  * Add more documentation\n  * Add IPv6 - Uncompressed IPv6 Addresses\n  * Add LOWPAN_HC1 - LOWPAN_HC1 compressed IPv6\n  * Add LOWPAN_BC0 - LOWPAN_BC0 broadcast\n  * Add MESH       - Mesh Header\n  * Add FRAG1      - Fragmentation Header (first) \n  * Add FRAGN      - Fragmentation Header (subsequent)\n  * Add descriptions for each field of the iphc header.\n  * Validator of 6lowpan frame.\n  * Desfragmentation\n  * Functionality to create a 6lowpan frame from user data (json config)\n   \n## History\n\n### 0.0.4 Initial Commit\n\n * Initial Commit\n * nitial iphc parse, iphc header and inline header.\n  \n### 0.0.5 Updates\n\n * Object functionality.\n * Update example 2.\n\n\n",
+  "readmeFilename": "README.md",
+  "gitHead": "3544c29bafae9dc326f7da0db7227f7c1d298d0e",
+  "_id": "6lowpan@0.0.5",
+  "_shasum": "ece55b6740d25dca7bfedced441ef096de87f824",
+  "_from": "6lowpan@*"
 }
